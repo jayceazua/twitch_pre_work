@@ -100,3 +100,4 @@ const renderTodos = (todos, filters) => {
   })
 
 }
+
