@@ -1,9 +1,11 @@
+const textElement = document.querySelector('#update-todo')
+const deleteElement = document.querySelector('#delete-todo')
 const todoId = location.hash.substring(1)
 
 // get saved todos -> get the premade function
-const todos = getSavedTodos()
+let todos = getSavedTodos()
 
-const todo = todos.find((todo) => {
+let todo = todos.find((todo) => {
   return todo.id = todoId
 })
 
@@ -12,21 +14,38 @@ if (todo === undefined) {
   location.assign('index.html')
 }
 
+textElement.value = todo.text
+
 // update todo
-document.querySelector('#update-todo').addEventListener('submit', (e) => {
-  e.preventDefault()
+textElement.addEventListener('input', (e) => {
   // update the todo object
-  todo.text = e.target.elements.text.value
+  todo.text = e.target.value
   // save the todo and redirect to the home page
   saveTodos(todos)
-  location.assign('index.html')
+
 })
 
 // delete todo
-document.querySelector('#delete-todo').addEventListener('click', () => {
+deleteElement.addEventListener('click', () => {
   // delete todo
   deleteTodo(todo.id)
   saveTodos(todos)
   // redirect to home page after button is deleted
   location.assign('index.html')
+})
+
+// global event listener
+window.addEventListener('storage', (e) => {
+  if (e.key === 'todos') {
+    todos = JSON.parse(e.newValue)
+    todo = todos.find((todo) => {
+      return todo.id === todoId
+    })
+
+    if (todo === undefined) {
+      location.assign('index.html')
+    }
+
+    textElement.value = todo.text
+  }
 })

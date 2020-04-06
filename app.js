@@ -1,5 +1,5 @@
 // mock data
-const todos = getSavedTodos()
+let todos = getSavedTodos()
 
 // render todos
 const filters = {
@@ -34,4 +34,14 @@ document.querySelector('#add-todo').addEventListener('submit', (e) => {
 document.querySelector('#hide-completed').addEventListener('change', (e) => {
   filters.hideCompleted = e.target.checked
   renderTodos(todos, filters)
+})
+
+// global update
+window.addEventListener('storage', (e) => {
+  if (e.key === 'todos') {
+    // parse the new and update notes
+    todos = JSON.parse(e.newValue)
+    renderTodos(todos, filters)
+
+  }
 })
