@@ -5,9 +5,7 @@ const todoId = location.hash.substring(1)
 // get saved todos -> get the premade function
 let todos = getSavedTodos()
 
-let todo = todos.find((todo) => {
-  return todo.id = todoId
-})
+let todo = todos.find((todo) =>  todo.id = todoId )
 
 // if note was not able to found redirect them to home page
 if (todo === undefined) {
@@ -38,9 +36,8 @@ deleteElement.addEventListener('click', () => {
 window.addEventListener('storage', (e) => {
   if (e.key === 'todos') {
     todos = JSON.parse(e.newValue)
-    todo = todos.find((todo) => {
-      return todo.id === todoId
-    })
+
+    todo = todos.find((todo) => todo.id === todoId )
 
     if (todo === undefined) {
       location.assign('index.html')

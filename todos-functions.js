@@ -17,9 +17,7 @@ const saveTodos = (todos) => {
 
 //delete todo
 const deleteTodo = (id) => {
-  const todoIndex = todos.findIndex((todo) => { // O(n) runtime
-    return todo.id === id
-  })
+  const todoIndex = todos.findIndex((todo) => todo.id === id )
 
   if (todoIndex > -1) {
     todos.splice(todoIndex, 1) // O(n) runtime
@@ -28,9 +26,7 @@ const deleteTodo = (id) => {
 
 // Toggle Todo
 const toggleTodo = (id) => {
-  const todo = todos.find((todo) => {
-    return todo.id === id
-  })
+  const todo = todos.find((todo) => todo.id === id )
 
   if (todo !== undefined) {
     todo.completed = !todo.completed
