@@ -9,6 +9,7 @@ const filters = {
 
 renderTodos(todos, filters)
 
+// search featurehttps://www.gs1.org/standards/barcodes
 document.querySelector('#search-text').addEventListener('input', (e) => {
   filters.searchText = e.target.value
   renderTodos(todos, filters)
