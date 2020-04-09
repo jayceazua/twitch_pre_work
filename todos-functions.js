@@ -84,9 +84,7 @@ const renderTodos = (todos, filters) => {
     return searchTextMatch && hideCompletedMatch
   })
 
-  const incompleteTodos = filteredTodos.filter((todo) => {
-    return !todo.completed
-  })
+  const incompleteTodos = filteredTodos.filter((todo) => !todo.completed )
 
   document.querySelector('#todos').innerHTML = ''
   document.querySelector('#todos').appendChild(generateSummaryDOM(incompleteTodos))
