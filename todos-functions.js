@@ -1,13 +1,7 @@
 // read existing todos from localStorage
 const getSavedTodos = () => {
   const todosJSON = localStorage.getItem('todos')
-
-  if (todosJSON) {
-    return JSON.parse(todosJSON)
-  }
-
-  return []
-
+  return todosJSON ? JSON.parse(todosJSON) : []
 }
 
 // Save todo
@@ -17,7 +11,7 @@ const saveTodos = (todos) => {
 
 //delete todo
 const deleteTodo = (id) => {
-  const todoIndex = todos.findIndex((todo) => todo.id === id )
+  const todoIndex = todos.findIndex((todo) => todo.id === id)
 
   if (todoIndex > -1) {
     todos.splice(todoIndex, 1) // O(n) runtime
@@ -26,7 +20,7 @@ const deleteTodo = (id) => {
 
 // Toggle Todo
 const toggleTodo = (id) => {
-  const todo = todos.find((todo) => todo.id === id )
+  const todo = todos.find((todo) => todo.id === id)
 
   if (todo) {
     todo.completed = !todo.completed
@@ -84,7 +78,7 @@ const renderTodos = (todos, filters) => {
     return searchTextMatch && hideCompletedMatch
   })
 
-  const incompleteTodos = filteredTodos.filter((todo) => !todo.completed )
+  const incompleteTodos = filteredTodos.filter((todo) => !todo.completed)
 
   document.querySelector('#todos').innerHTML = ''
   document.querySelector('#todos').appendChild(generateSummaryDOM(incompleteTodos))
@@ -94,4 +88,3 @@ const renderTodos = (todos, filters) => {
   })
 
 }
-
