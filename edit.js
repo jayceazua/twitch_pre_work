@@ -1,3 +1,5 @@
+'use strict'
+
 const textElement = document.querySelector('#update-todo')
 const deleteElement = document.querySelector('#delete-todo')
 const todoId = location.hash.substring(1)

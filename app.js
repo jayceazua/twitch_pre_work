@@ -1,3 +1,5 @@
+'use strict'
+
 // mock data
 let todos = getSavedTodos()
 
