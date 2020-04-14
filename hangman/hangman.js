@@ -5,11 +5,12 @@ const Hangman = function (word, guesses) {
 
 }
 
-Hangman.prototype.getPuzzle = function () {
+Hangman.prototype.getPuzzle = function () { // O(n^2) runtime to search and replace for hangman
   let puzzle = ''
 
-  this.word.forEach((letter) => {
-    this.lettersGuessed.includes(letter) ? puzzle += letter : puzzle += '*'
+  this.word.forEach((letter) => { // O(n)
+    // O(n)
+    this.lettersGuessed.includes(letter) ? puzzle += letter : puzzle += ' *'
   });
 
   return puzzle
