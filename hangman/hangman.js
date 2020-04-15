@@ -31,9 +31,3 @@ Hangman.prototype.makeGuess = function (guess) {
     this.remainingGuesses -= 1
   }
 }
-
-window.addEventListener('keypress', function (e) {
-  const guess = String.fromCharCode(e.charCode)
-  // call the getPuzzle method
-  // call the remainingGuesses method
-})
