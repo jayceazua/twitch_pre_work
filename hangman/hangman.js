@@ -1,8 +1,15 @@
 const Hangman = function (word, remainingGuesses) {
   this.word = word.toLowerCase().split('')
-  this.lettersGuessed = ['c']
+  this.lettersGuessed = []
   this.remainingGuesses = remainingGuesses
+  this.status = 'playing'
 
+}
+
+Hangman.prototype.calStatus = function () {
+  if (this.remainingGuesses === 0) {
+    this.status = 'failed'
+  }
 }
 
 Hangman.prototype.getPuzzle = function () { // O(n^2) runtime to search and replace for hangman
@@ -30,4 +37,6 @@ Hangman.prototype.makeGuess = function (guess) {
   if (isUnique && isBadguess) {
     this.remainingGuesses -= 1
   }
+
+  this.calStatus()
 }
