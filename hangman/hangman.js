@@ -20,6 +20,16 @@ Hangman.prototype.calStatus = function () {
   }
 }
 
+Hangman.prototype.getStatusMessage = function () {
+  if (this.status === 'playing') {
+    return `Guesses left: ${this.remainingGuesses}`
+  } else if (this.status === 'failed') {
+    return `You suck! The word was "${this.word.join('')}"`
+  } else {
+    return 'You won!'
+  }
+}
+
 Hangman.prototype.getPuzzle = function () { // O(n^2) runtime to search and replace for hangman
   let puzzle = ''
 
@@ -39,9 +49,14 @@ Hangman.prototype.makeGuess = function (guess) {
   const isUnique = !this.lettersGuessed.includes(guess)
   const isBadguess = !this.word.includes(guess)
 
+  if (this.status !== 'playing') {
+    return
+  }
+
   if (isUnique) {
     this.lettersGuessed.push(guess)
   }
+
   if (isUnique && isBadguess) {
     this.remainingGuesses -= 1
   }

@@ -3,8 +3,8 @@ const puzzleEl = document.querySelector('#puzzle')
 const game1 = new Hangman('Cat', 2)
 
 puzzleEl.textContent = game1.getPuzzle()
-guessesEl.textContent = game1.remainingGuesses
-console.log(game1.status)
+guessesEl.textContent = game1.getStatusMessage()
+
 
 window.addEventListener('keypress', function (e) {
   const guess = String.fromCharCode(e.charCode)
@@ -12,7 +12,7 @@ window.addEventListener('keypress', function (e) {
   game1.makeGuess(guess)
   // call the remainingGuesses method
   puzzleEl.textContent = game1.getPuzzle()
-  guessesEl.textContent = game1.remainingGuesses
+  guessesEl.textContent = game1.getStatusMessage()
   console.log(game1.status)
 
 })
