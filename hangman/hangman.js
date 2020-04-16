@@ -7,8 +7,22 @@ const Hangman = function (word, remainingGuesses) {
 }
 
 Hangman.prototype.calStatus = function () {
+  let finished = true
+
+  this.word.forEach((letter) => {
+    
+    if (!this.lettersGuessed.includes(letter)){
+      finished = false
+    } 
+
+  })
+
   if (this.remainingGuesses === 0) {
     this.status = 'failed'
+  } else if (finished) {
+    this.status = 'finished'
+  } else {
+    this.status = 'playing'
   }
 }
 
