@@ -3,7 +3,6 @@ const Hangman = function (word, remainingGuesses) {
   this.lettersGuessed = []
   this.remainingGuesses = remainingGuesses
   this.status = 'playing'
-
 }
 
 Hangman.prototype.calStatus = function () {
