@@ -15,7 +15,7 @@ const getPuzzle = (wordCount) => new Promise((resolve, reject) => {
 })
 
 
-/* Using Callbacks */
+/* Using Callbacks 
 // const getPuzzle = (wordcount, callback) => {
 //   const request = new XMLHttpRequest()
 
@@ -33,3 +33,9 @@ const getPuzzle = (wordCount) => new Promise((resolve, reject) => {
 //   request.open('GET', `http://puzzle.mead.io/puzzle?wordCount=${wordcount}`)
 //   request.send()
 // }
+
+
+fetch api notes
+
+
+*/
