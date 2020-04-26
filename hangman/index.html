@@ -3,16 +3,25 @@
 
 <html>
 
-<head></head>
+<head>
+  <title>Hangman</title>
+  <link rel="icon" href="">
+  <link rel="stylesheet" href="styles/styles.css">
+
+</head>
 
 <body>
+  <div>
+    <div id="puzzle" class="puzzle"></div>
+    <p id="guesses"></p>
+    <button id="reset" class="button">Reset</button>
+  </div>
 
-  <p id="puzzle"></p>
-  <p id="guesses"></p>
-  <button id="reset">Reset</button>
-  <script src="requests.js"></script>
-  <script src="hangman.js"></script>
-  <script src="app.js"></script>
+
+  <!-- Javascript -->
+  <script src="scripts/requests.js"></script>
+  <script src="scripts/hangman.js"></script>
+  <script src="scripts/app.js"></script>
 </body>
 
 </html>
