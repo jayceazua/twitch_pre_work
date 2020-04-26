@@ -4,10 +4,10 @@
 
 const guessesEl = document.querySelector('#guesses')
 const puzzleEl = document.querySelector('#puzzle')
-const game1 = new Hangman('Cat', 2)
+let game1 = new Hangman('Cat', 2)
 
-puzzleEl.textContent = game1.puzzle
-guessesEl.textContent = game1.statusMessage
+// puzzleEl.textContent = game1.puzzle
+// guessesEl.textContent = game1.statusMessage
 
 
 window.addEventListener('keypress', (e) => {
@@ -15,23 +15,20 @@ window.addEventListener('keypress', (e) => {
   // call the getPuzzle method
   game1.makeGuess(guess)
   // call the remainingGuesses method
+  render()
+})
+
+const render = () => {
   puzzleEl.textContent = game1.puzzle
   guessesEl.textContent = game1.statusMessage
-  console.log(game1.status)
+}
 
-})
+const startGame = async () => {
+  const puzzle = await getPuzzle('2')
+  game1 = new Hangman(puzzle, 5)
+  render()
+}
 
+document.querySelector('#reset').addEventListener('click', startGame)
 
-getPuzzle('4').then((puzzle) => {
-  console.log(puzzle)
-
-}).catch(err => {
-  console.log(`Error: ${err}`)
-})
-
-// 
-// create getLocation function which takes no arguments
-// setup geolocation to make a request to the url and parse the data
-// use getlocation to print the city, region, and country information
-
-
+startGame()
