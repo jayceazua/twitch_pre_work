@@ -29,3 +29,9 @@ getPuzzle('4').then((puzzle) => {
   console.log(`Error: ${err}`)
 })
 
+// 
+// create getLocation function which takes no arguments
+// setup geolocation to make a request to the url and parse the data
+// use getlocation to print the city, region, and country information
+
+
