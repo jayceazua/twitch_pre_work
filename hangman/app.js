@@ -1,13 +1,6 @@
-// HTTP (HyperText Transfer Protocol)
-// Request - what we want to do
-// Response - what was actually done
-
 const guessesEl = document.querySelector('#guesses')
 const puzzleEl = document.querySelector('#puzzle')
 let game1 = new Hangman('Cat', 2)
-
-// puzzleEl.textContent = game1.puzzle
-// guessesEl.textContent = game1.statusMessage
 
 
 window.addEventListener('keypress', (e) => {
