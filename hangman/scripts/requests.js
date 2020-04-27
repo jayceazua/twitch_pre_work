@@ -1,5 +1,6 @@
 const getPuzzle = async (wordCount) => {
-  const response = await fetch(`http://puzzle.mead.io/puzzle?wordCount=${wordCount}`)
+  // by leaving out the http or https it automatically gets the correct version 
+  const response = await fetch(`//puzzle.mead.io/puzzle?wordCount=${wordCount}`)
   if (response.status === 200) {
     const data = await response.json()
     return data.puzzle
